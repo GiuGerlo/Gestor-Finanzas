@@ -1,0 +1,820 @@
+/* ===================================
+   Gestor de Finanzas - Modern PWA Design
+   Ultra Modern Financial Management Interface
+   =================================== */
+
+/* Importar fuentes modernas */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+
+/* Variables CSS - Diseño Moderno */
+:root {
+  /* Paleta de colores moderna */
+  --primary: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  --primary-solid: #667eea;
+  --primary-light: #8a9cf7;
+  --primary-dark: #5a6fd8;
+  
+  --secondary: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  --secondary-solid: #f093fb;
+  
+  --success: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+  --success-solid: #4facfe;
+  
+  --danger: linear-gradient(135deg, #fa709a 0%, #fee140 100%);
+  --danger-solid: #fa709a;
+  
+  --warning: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+  --warning-solid: #fcb69f;
+  
+  --info: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  --info-solid: #a8edea;
+  
+  /* Colores neutros modernos */
+  --white: #ffffff;
+  --gray-50: #f8fafc;
+  --gray-100: #f1f5f9;
+  --gray-200: #e2e8f0;
+  --gray-300: #cbd5e1;
+  --gray-400: #94a3b8;
+  --gray-500: #64748b;
+  --gray-600: #475569;
+  --gray-700: #334155;
+  --gray-800: #1e293b;
+  --gray-900: #0f172a;
+  
+  /* Fondos con glassmorphism */
+  --bg-glass: rgba(255, 255, 255, 0.25);
+  --bg-glass-hover: rgba(255, 255, 255, 0.35);
+  --bg-dark-glass: rgba(15, 23, 42, 0.8);
+  
+  /* Sombras modernas */
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  --shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-xl: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  
+  /* Efectos glassmorphism */
+  --glass-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  --glass-border: 1px solid rgba(255, 255, 255, 0.18);
+  --glass-backdrop: blur(8px);
+  
+  /* Bordes modernos */
+  --border-radius-sm: 0.5rem;
+  --border-radius: 0.75rem;
+  --border-radius-lg: 1rem;
+  --border-radius-xl: 1.5rem;
+  --border-radius-full: 9999px;
+  
+  /* Espaciado */
+  --spacing-xs: 0.25rem;
+  --spacing-sm: 0.5rem;
+  --spacing-md: 1rem;
+  --spacing-lg: 1.5rem;
+  --spacing-xl: 2rem;
+  --spacing-2xl: 3rem;
+  --spacing-3xl: 4rem;
+  
+  /* Tipografía moderna */
+  --font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  
+  /* Transiciones */
+  --transition-fast: 0.15s ease-out;
+  --transition-base: 0.3s ease-out;
+  --transition-slow: 0.5s ease-out;
+}
+
+/* Reset moderno */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--gray-800);
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ===================================
+   LAYOUT PRINCIPAL - GLASSMORPHISM
+   =================================== */
+
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.app-container::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: 
+    radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+    radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+  z-index: -1;
+}
+
+/* Header moderno con glassmorphism */
+.app-header {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  color: var(--white);
+  padding: var(--spacing-lg) var(--spacing-xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  box-shadow: var(--glass-shadow);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.app-header h1 {
+  font-size: var(--font-size-2xl);
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Contenido principal */
+.app-content {
+  flex: 1;
+  padding: var(--spacing-xl);
+  position: relative;
+  z-index: 1;
+}
+
+/* ===================================
+   CARDS MODERNAS CON GLASSMORPHISM
+   =================================== */
+
+.card {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--glass-shadow);
+  margin-bottom: var(--spacing-xl);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  position: relative;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--primary);
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-xl);
+  background: var(--bg-glass-hover);
+}
+
+.card-header {
+  padding: var(--spacing-xl);
+  background: rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-body {
+  padding: var(--spacing-xl);
+}
+
+.card-footer {
+  padding: var(--spacing-xl);
+  background: rgba(255, 255, 255, 0.05);
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.card-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: var(--spacing-md);
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-sm);
+}
+
+.card-text {
+  color: rgba(255, 255, 255, 0.8);
+  line-height: 1.6;
+}
+
+/* ===================================
+   BOTONES MODERNOS
+   =================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-sm);
+  font-family: var(--font-family);
+  font-weight: 500;
+  font-size: var(--font-size-base);
+  line-height: 1;
+  text-decoration: none;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  border-radius: var(--border-radius);
+  padding: var(--spacing-md) var(--spacing-xl);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.2) 50%, transparent 70%);
+  transform: translateX(-100%);
+  transition: transform var(--transition-base);
+}
+
+.btn:hover::before {
+  transform: translateX(100%);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn:active {
+  transform: translateY(0);
+}
+
+.btn-primary {
+  background: var(--primary);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-success {
+  background: var(--success);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-danger {
+  background: var(--danger);
+  color: var(--white);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-warning {
+  background: var(--warning);
+  color: var(--gray-800);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-info {
+  background: var(--info);
+  color: var(--gray-800);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-outline-primary {
+  background: transparent;
+  color: var(--white);
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline-primary:hover {
+  background: var(--bg-glass);
+  border-color: rgba(255, 255, 255, 0.6);
+}
+
+.btn-sm {
+  padding: var(--spacing-sm) var(--spacing-lg);
+  font-size: var(--font-size-sm);
+}
+
+.btn-lg {
+  padding: var(--spacing-lg) var(--spacing-2xl);
+  font-size: var(--font-size-lg);
+}
+
+.btn-block {
+  width: 100%;
+}
+
+/* Botón flotante moderno */
+.btn-floating {
+  position: fixed;
+  bottom: 100px;
+  right: var(--spacing-xl);
+  width: 64px;
+  height: 64px;
+  border-radius: var(--border-radius-full);
+  background: var(--primary);
+  color: var(--white);
+  font-size: var(--font-size-xl);
+  box-shadow: var(--shadow-xl);
+  z-index: 1000;
+  transition: all var(--transition-base);
+}
+
+.btn-floating:hover {
+  transform: scale(1.1) translateY(-2px);
+  box-shadow: var(--shadow-xl);
+}
+
+/* ===================================
+   FORMULARIOS MODERNOS
+   =================================== */
+
+.form-container {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.form-group {
+  margin-bottom: var(--spacing-xl);
+  position: relative;
+}
+
+.form-label {
+  display: block;
+  font-weight: 500;
+  color: var(--white);
+  margin-bottom: var(--spacing-sm);
+  font-size: var(--font-size-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.form-control {
+  width: 100%;
+  padding: var(--spacing-lg);
+  font-size: var(--font-size-base);
+  font-family: var(--font-family);
+  color: var(--white);
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+.form-control::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.form-control:focus {
+  border-color: rgba(255, 255, 255, 0.6);
+  box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.1);
+  background: var(--bg-glass-hover);
+}
+
+.form-select {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='white' viewBox='0 0 16 16'%3e%3cpath d='M8 13.1l4.2-4.2L8 4.7 3.8 8.9z'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 16px;
+  appearance: none;
+  cursor: pointer;
+}
+
+/* ===================================
+   COMPONENTES FINANCIEROS MODERNOS
+   =================================== */
+
+.balance-summary {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.balance-card {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-2xl);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.balance-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--primary);
+}
+
+.balance-card.income::before {
+  background: var(--success);
+}
+
+.balance-card.expense::before {
+  background: var(--danger);
+}
+
+.balance-card:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: var(--shadow-xl);
+}
+
+.balance-amount {
+  font-size: var(--font-size-3xl);
+  font-weight: 800;
+  color: var(--white);
+  margin-bottom: var(--spacing-sm);
+  background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.balance-label {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+}
+
+/* Items de transacciones */
+.transaction-item {
+  display: flex;
+  align-items: center;
+  padding: var(--spacing-lg);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--spacing-md);
+  transition: all var(--transition-base);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.transaction-item:hover {
+  transform: translateX(8px);
+  background: rgba(255, 255, 255, 0.15);
+  box-shadow: var(--shadow-lg);
+}
+
+.transaction-icon {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--border-radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: var(--spacing-lg);
+  font-size: var(--font-size-lg);
+  color: var(--white);
+  position: relative;
+  overflow: hidden;
+}
+
+.transaction-icon.income {
+  background: var(--success);
+}
+
+.transaction-icon.expense {
+  background: var(--danger);
+}
+
+.transaction-details {
+  flex: 1;
+}
+
+.transaction-category {
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: var(--spacing-xs);
+  font-size: var(--font-size-base);
+}
+
+.transaction-description {
+  font-size: var(--font-size-sm);
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.transaction-amount {
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+}
+
+.transaction-amount.income {
+  color: #4ade80;
+}
+
+.transaction-amount.expense {
+  color: #f87171;
+}
+
+.transaction-date {
+  font-size: var(--font-size-xs);
+  color: rgba(255, 255, 255, 0.6);
+  text-align: right;
+}
+
+/* ===================================
+   NAVEGACIÓN INFERIOR MODERNA
+   =================================== */
+
+.app-footer {
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+}
+
+.bottom-nav {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background: var(--bg-glass);
+  border: var(--glass-border);
+  border-bottom: none;
+  padding: var(--spacing-md) var(--spacing-sm);
+  position: relative;
+  backdrop-filter: var(--glass-backdrop);
+  -webkit-backdrop-filter: var(--glass-backdrop);
+}
+
+.nav-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: var(--border-radius);
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-item::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: var(--primary-solid);
+  transition: all var(--transition-base);
+  transform: translateX(-50%);
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.nav-item.active::before {
+  width: 100%;
+}
+
+.nav-item i {
+  font-size: var(--font-size-lg);
+  margin-bottom: var(--spacing-xs);
+}
+
+.nav-item span {
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* ===================================
+   MODALES MODERNOS
+   =================================== */
+
+.modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all var(--transition-base);
+}
+
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.modal-content {
+  background: var(--bg-glass);
+  backdrop-filter: var(--glass-backdrop);
+  border: var(--glass-border);
+  border-radius: var(--border-radius-xl);
+  padding: var(--spacing-2xl);
+  width: 90%;
+  max-width: 400px;
+  transform: scale(0.8);
+  transition: all var(--transition-base);
+}
+
+.modal.show .modal-content {
+  transform: scale(1);
+}
+
+/* ===================================
+   UTILIDADES MODERNAS
+   =================================== */
+
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-white { color: var(--white); }
+.text-primary { color: var(--primary-solid); }
+.text-success { color: #4ade80; }
+.text-danger { color: #f87171; }
+.text-warning { color: var(--warning-solid); }
+.text-info { color: var(--info-solid); }
+
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+.justify-content-center { justify-content: center; }
+.justify-content-between { justify-content: space-between; }
+.align-items-center { align-items: center; }
+
+.w-100 { width: 100%; }
+.h-100 { height: 100%; }
+
+/* Márgenes */
+.m-0 { margin: 0; }
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--spacing-xs); }
+.mb-2 { margin-bottom: var(--spacing-sm); }
+.mb-3 { margin-bottom: var(--spacing-md); }
+.mb-4 { margin-bottom: var(--spacing-lg); }
+
+/* ===================================
+   ANIMACIONES MODERNAS
+   =================================== */
+
+@keyframes slideInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-slide-up {
+  animation: slideInUp 0.6s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.5s ease-out;
+}
+
+/* ===================================
+   RESPONSIVE DESIGN
+   =================================== */
+
+@media (max-width: 768px) {
+  .app-header {
+    padding: var(--spacing-md) var(--spacing-lg);
+  }
+  
+  .app-content {
+    padding: var(--spacing-lg);
+  }
+  
+  .balance-summary {
+    grid-template-columns: 1fr;
+  }
+  
+  .btn-floating {
+    bottom: 80px;
+    right: var(--spacing-lg);
+  }
+  
+  .form-container {
+    padding: 0;
+  }
+}
+
+@media (min-width: 1024px) {
+  .app-container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  .balance-summary {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* ===================================
+   MODO OSCURO
+   =================================== */
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+  }
+  
+  .card {
+    background: rgba(15, 23, 42, 0.8);
+  }
+  
+  .form-control {
+    background: rgba(15, 23, 42, 0.6);
+  }
+}

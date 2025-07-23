@@ -1,0 +1,114 @@
+📌 Descripción general
+Quiero que me generes una aplicación web progresiva (PWA), con diseño 100% enfocado a uso en dispositivos móviles, que pueda ser instalada en un iPhone desde Safari y funcione offline. No necesito subirla a la App Store.
+
+📊 Funcionalidades clave
+Inicio de sesión de usuarios
+
+Login y logout con email y contraseña.
+
+Recordar sesión si ya ingresó en ese dispositivo (con localStorage o cookies).
+
+No pedir login cada vez.
+
+Gestión de ingresos y egresos
+
+Divididos por categorías personalizables (ej: Sueldo, Comida, Transporte, etc.).
+
+Monto en pesos argentinos ($).
+
+Fecha de ingreso/egreso (obligatorio).
+
+Visualización mensual y anual
+
+Posibilidad de filtrar y agrupar movimientos por:
+
+Mes (Ej: Julio 2025)
+
+Año (Ej: 2025)
+
+Mostrar resumen por categoría y totales.
+
+Análisis y estadísticas
+
+Mostrar:
+
+Total de ingresos vs. egresos por mes
+
+Categorías que más consumen
+
+Porcentaje de ahorro estimado (Ingresos - Egresos)
+
+Gráficos atractivos (barras o circulares).
+
+Ahorros
+
+Cálculo de ahorro mensual y acumulado.
+
+Posibilidad de registrar manualmente un objetivo de ahorro.
+
+Visualizar cuánto falta para cumplir el objetivo.
+
+Modo offline completo
+
+La app debe funcionar sin conexión a internet:
+
+Consultar datos existentes
+
+Agregar ingresos/egresos offline
+
+Sincronizar automáticamente cuando recupere conexión.
+
+Diseño e interfaz
+
+Atractivo, moderno y centrado 100% en mobile.
+
+Responsive con diseño tipo app (pantalla completa, sin barras).
+
+Ícono para agregar a pantalla de inicio.
+
+Preferentemente usar Bootstrap o similar.
+
+Backend simple en PHP + MySQL
+
+API REST en PHP.
+
+Base de datos MySQL con tablas usuarios, movimientos, categorias, ahorros.
+
+Los endpoints deben permitir:
+
+Login
+
+Agregar movimiento
+
+Obtener movimientos por usuario y filtro (mes/año)
+
+Agregar categoría
+
+Obtener resumen y estadísticas
+
+Guardar objetivo de ahorro
+
+Frontend en HTML + JS
+
+No frameworks JS pesados (opcionalmente usar Vanilla JS o algo liviano).
+
+Manejo de sesión con localStorage y Service Worker.
+
+Gráficos simples con Chart.js o similar.
+
+Instalable en iPhone (PWA)
+
+manifest.json y service-worker.js bien configurados.
+
+Funcione desde HTTPS.
+
+Permita instalación desde Safari.
+
+🗃️ Extras deseables (opcional)
+Soporte para modo oscuro.
+
+Configuración de moneda (pero por defecto en ARS).
+
+Opción de exportar a CSV o PDF (resumen mensual).
+
+Animaciones sutiles al agregar movimientos.
